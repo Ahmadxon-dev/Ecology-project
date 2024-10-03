@@ -48,7 +48,7 @@ const Add = ()=>{
         //         headers: { "Content-Type": "multipart/form-data" },
         //     }
         // );
-        await fetch('http://localhost:5000/add', {
+        await fetch('https://ecology-project-server.onrender.com/add', {
             method: "POST",
             body: formData,
             // headers: {

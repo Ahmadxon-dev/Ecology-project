@@ -9,7 +9,7 @@ const Product = (context)=>{
     const [loading, setLoading] = useState(true)
     useEffect(()=>{
         const fetched = async () => {
-            await fetch(`http://localhost:5000/product/${id}`)
+            await fetch(`https://ecology-project-server.onrender.com/product/${id}`)
                 .then(res=>res.json())
                 .then(data=> {
 

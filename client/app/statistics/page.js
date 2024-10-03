@@ -6,7 +6,7 @@ function  Statistics(props) {
     const [data, setData] = useState([])
     useEffect( ()=>{
         const fetchData = async ()=>{
-            return await fetch("http://localhost:5000/statistics")
+            return await fetch("https://ecology-project-server.onrender.com/statistics")
         }
         fetchData().then(res=>res.json()).then(data=> {
             setData(data)
