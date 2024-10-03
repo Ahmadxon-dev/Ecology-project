@@ -34,11 +34,12 @@ const Add = ()=>{
         // setStreet("")
         // setDistrict("")
         // setDescription("")
-        const formData = new FormData();
-        formData.append("image", image);
-        formData.append("district", district)
-        formData.append("street", street)
-        formData.append("description", description)
+
+        // const formData = new FormData();
+        // // formData.append("image", image);
+        // formData.append("district", district)
+        // formData.append("street", street)
+        // formData.append("description", description)
 
 
         // const result = await axios.post(
@@ -50,10 +51,15 @@ const Add = ()=>{
         // );
         await fetch('https://ecology-project-server.onrender.com/add', {
             method: "POST",
-            body: formData,
-            // headers: {
-            //     "Content-Type": "multipart/form-data",
-            // }
+            body:JSON.stringify({
+                district:district,
+                street:street,
+                description:description,
+            }),
+            // body: formData,
+            headers: {
+                "Content-Type": "application/json",
+            }
         });
         router.push("/statistics")
     };
@@ -65,7 +71,7 @@ const Add = ()=>{
                 <form onSubmit={handleSubmit}>
                     <select className=" w-full text-black/70 bg-white px-3 py-2 transition-all cursor-pointer border  rounded-lg  appearance-none invalid:text-black/30 w-64" id="district" required={true} name="district" value={district}
                             onChange={handleInputChange}>
-                        {/*<option>Tanlang</option>*/}
+                        <option>Tanlang</option>
                         <option value="Bektemir">Bektemir tumani</option>
                         <option value="Mirobod">Mirobod tumani</option>
                         <option value="Mirzo Ulug'bek">Mirzo Ulug'bek tumani</option>
@@ -95,9 +101,9 @@ const Add = ()=>{
                     <br/>
                     <label htmlFor="formFile" className="block text-sm font-semibold leading-6 text-gray-900">Qo'shimcha ma'lumot</label>
                     <textarea rows={`4`} className={`block w-full rounded-md border px-3.5 py-2 text-gray-900   placeholder:text-gray-400 focus:ring-green-600 sm:text-sm sm:leading-6`} name="description" id="formFile" onChange={handleInputChange}></textarea>
-                    <br/>
-                    <label htmlFor="image" className="block text-sm font-semibold leading-6 text-gray-900">Rasmni joylashtirish</label>
-                    <input type="file" id={`image`} accept="image/*" onChange={e=>setImage(e.target.files[0])} />
+                    {/*<br/>*/}
+                    {/*<label htmlFor="image" className="block text-sm font-semibold leading-6 text-gray-900">Rasmni joylashtirish</label>*/}
+                    {/*<input type="file" id={`image`} accept="image/*" onChange={e=>setImage(e.target.files[0])} />*/}
                     <br/>
                     <br/>
                     <button type="submit" className={`block w-full rounded-md bg-green-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600`}>Qo'shish</button>

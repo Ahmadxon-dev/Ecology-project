@@ -24,37 +24,39 @@ function start(){
 }
 start()
 
-const multer = require("multer");
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, "../client/public/images/");
-    },
-    filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now();
-        cb(null, uniqueSuffix + file.originalname);
-    },
-});
-const upload = multer({ storage: storage });
+// const multer = require("multer");
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, "../client/public/images/");
+//     },
+//     filename: function (req, file, cb) {
+//         const uniqueSuffix = Date.now();
+//         cb(null, uniqueSuffix + file.originalname);
+//     },
+// });
+// const upload = multer({ storage: storage });
 
 app.get("/statistics", async (req,res)=>{
 
     res.json(await Image.find())
     return Post.find();
 })
-app.post("/add",  upload.single("image"), async (req,res)=>{
+app.post("/add",  async (req,res)=>{
     const {district, street, description} = req.body
     if (!district || !street || !description){
         res.redirect("/")
         return
     }
-    const imageName = req.file.filename;
+    // const imageName = req.file.filename;
     const imgData = {
-        image:imageName,
+        // image:imageName,
         district,
         street,
         description
     }
-    console.log(imageName)
+    console.log(imgData)
+
+    // console.log(imageName)
     await Image.create(imgData);
     // await Post.create(postData)
     res.redirect('/')

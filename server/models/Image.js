@@ -2,7 +2,7 @@ const {Schema, model} = require("mongoose")
 const moment = require("moment");
 
 const imageSchema = new Schema({
-    image:{type:String, required:true},
+    // image:{type:String, required:true},
     district: {
         type:String,
         enum:["Bektemir", "Mirobod", "Mirzo Ulug'bek", "Sergeli", "Olmazor", "UchTepa", "Shayxontohur", "Yashnobod", "Chilonzor", "Yunusobod", "Yakkasaroy"],

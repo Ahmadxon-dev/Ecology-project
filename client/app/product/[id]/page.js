@@ -28,7 +28,9 @@ const Product = (context)=>{
             {!loading && <><h2><strong>Tuman : </strong>{data.district}</h2>
                 <h3><strong>Mahalla : </strong>{data.street}</h3>
                 <h5 className="text-2xl"><strong>Qo'shimcha ma'lumot : </strong> {data.description}</h5>
-                <Image src={`/images/${data.image}`} className={`mx-auto`} quality={100} priority={true} width={500} height={500}  alt={`dsdds`} /></>}
+                {/*<Image src={`/images/${data.image}`} className={`mx-auto`} quality={100} priority={true} width={500} height={500}  alt={`dsdds`} />*/}
+            </>
+            }
 
         </div>
     )
