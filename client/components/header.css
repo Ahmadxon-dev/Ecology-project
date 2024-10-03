@@ -1,0 +1,14 @@
+.nav{
+  /*background-color: rgb(31,41,55) !important;*/
+}
+* {
+  transition: all 0.3s ease-in-out;
+}
+.nav {
+  backdrop-filter: blur(10px);
+  opacity: 0.9;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+}
