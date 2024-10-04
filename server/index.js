@@ -11,7 +11,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 function start(){
-    const PORT = 5000 || process.env.PORT
+    const PORT = process.env.PORT || 5000
     app.listen(PORT, ()=> {
         console.log("Server has been started on port " + PORT)
     })
